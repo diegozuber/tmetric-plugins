@@ -2,7 +2,9 @@ class Notion implements WebToolIntegration {
 
     showIssueId = false;
 
-    matchUrl = 'https://www.notion.so/*';
+    match() {
+        return !!$$('#notion-app');
+    }
 
     issueElementSelector = ['.notion-peek-renderer', '.notion-cursor-listener > div[class=""]'];
 
@@ -27,7 +29,7 @@ class Notion implements WebToolIntegration {
             issueName = titleEl.textContent || titleEl.getAttribute('placeholder');
             const idAttr = titleEl.parentElement?.getAttribute('data-block-id');
             issueId = idAttr && idAttr.replace(/-/g, '');
-            issueUrl = issueId;
+            issueUrl = `p/${issueId}`;
         }
 
         const serviceUrl = source.protocol + source.host

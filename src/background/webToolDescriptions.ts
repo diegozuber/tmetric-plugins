@@ -372,7 +372,12 @@ const getWebToolDescriptions = function () {
             serviceType: 'Notion',
             serviceName: 'Notion',
             icon: 'notion.svg',
-            origins: ['https://www.notion.so/*'],
+            origins: [
+                'https://www.notion.so/*',
+                'https://app.notion.com/*',
+                'https://*.notion.site/*'
+            ],
+            hasAdditionalOrigins: true,
             scripts: {
                 js: ['in-page-scripts/integrations/notion.js']
             }
