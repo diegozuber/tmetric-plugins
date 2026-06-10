@@ -24,10 +24,10 @@ class Notion implements WebToolIntegration {
         let issueName: string | null | undefined;
         let issueUrl: string | null | undefined;
 
-        const titleEl = $$('.notion-page-block > h1.notranslate', issueElement);
+        const titleEl = $$('.notion-page-block h1.notranslate', issueElement);
         if (titleEl) {
             issueName = titleEl.textContent || titleEl.getAttribute('placeholder');
-            const idAttr = titleEl.parentElement?.getAttribute('data-block-id');
+            const idAttr = titleEl.closest('.notion-page-block')?.getAttribute('data-block-id');
             issueId = idAttr && idAttr.replace(/-/g, '');
             issueUrl = `p/${issueId}`;
         }
