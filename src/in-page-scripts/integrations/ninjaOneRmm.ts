@@ -24,7 +24,7 @@ class NinjaOneRmm implements WebToolIntegration {
         ).textContent;
 
         const issueName = $$.try<HTMLInputElement>(
-            '.css-1a3i6ho input',
+            '.css-1lov8qt input',
             issueElement
         ).value;
         if (!issueName) {
@@ -39,8 +39,6 @@ class NinjaOneRmm implements WebToolIntegration {
             '.css-34fts7 div:first-child .css-xpxtxf span',
             issueElement
         ).textContent;
-
-        console.log(projectName);
 
         let tagNames = [] as string[];
         $$.all('.css-4juktp', issueElement).forEach((element) => {
@@ -63,13 +61,10 @@ class NinjaOneRmm implements WebToolIntegration {
      * Inserts the timer button for the identified issue into a Web page.
      */
     render(issueElement: HTMLElement, linkElement: HTMLElement) {
-        var host = $$('.css-19ejha5', issueElement);
+        var host = $$('.css-d5ey8p', issueElement);
         if (host) {
-            const span = $$.create('span', 'css-17loz3m');
-            span.setAttribute('data-reach-listbox-button', '');
-            span.appendChild(linkElement);
-            const container = $$.create('div');
-            container.appendChild(span);
+            const container = $$.create('div', 'css-1tkzw7');
+            container.appendChild(linkElement);
             host.appendChild(container);
         }
     }
