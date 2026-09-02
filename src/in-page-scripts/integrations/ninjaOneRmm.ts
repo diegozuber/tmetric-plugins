@@ -24,7 +24,7 @@ class NinjaOneRmm implements WebToolIntegration {
         ).textContent;
 
         const issueName = $$.try<HTMLInputElement>(
-            '.css-1lov8qt input',
+            '.css-132fwvo input',
             issueElement
         ).value;
         if (!issueName) {
@@ -36,14 +36,14 @@ class NinjaOneRmm implements WebToolIntegration {
         const issueUrl = `/#/ticketing/ticket/${issueId ? issueId.replace('#', '') : ''}`;
 
         const projectName = $$.try(
-            '.css-34fts7 div:first-child .css-xpxtxf span',
+            '.css-1c2jcq2 div:first-child .css-1iub2mo span',
             issueElement
         ).textContent;
 
         let tagNames = [] as string[];
-        $$.all('.css-4juktp', issueElement).forEach((element) => {
-            if ($$.try('.css-4juktp span', element).textContent == 'Tags') {
-                $$.all('.css-161u6g7 .text-ellipsis', element)
+        $$.all('.css-1c8fzog', issueElement).forEach((element) => {
+            if ($$.try('.css-1c8fzog span', element).textContent == 'Tags') {
+                $$.all('.css-jo4oi5 span', element)
                     .forEach(label => {
                         const tagName = label.textContent;
                         tagName && tagNames.push(tagName);
@@ -63,7 +63,8 @@ class NinjaOneRmm implements WebToolIntegration {
     render(issueElement: HTMLElement, linkElement: HTMLElement) {
         var host = $$('.css-d5ey8p', issueElement);
         if (host) {
-            const container = $$.create('div', 'css-1tkzw7');
+            const container = $$.create('div', 'css-1ddlxru');
+            container.style.minWidth = 'auto';
             container.appendChild(linkElement);
             host.appendChild(container);
         }
